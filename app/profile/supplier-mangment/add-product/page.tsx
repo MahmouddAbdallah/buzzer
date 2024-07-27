@@ -60,6 +60,7 @@ const AddProduct = () => {
                 toast.success("Product Added Successfully!!!",);
                 reset();
                 URL.revokeObjectURL(image)
+                window.location.reload();
                 setImage('')
                 setLoading(false);
             } catch (error: any) {
