@@ -14,13 +14,13 @@ export default function RootLayout({
 }>) {
     return (
         <div>
-            <header className='bg-[url("/productImg.jpg")] bg-cover bg-center bg-no-repeat h-[65svh]'>
+            <header className='bg-[url("/restaurants.jpg")] bg-cover bg-center bg-no-repeat h-[65svh]'>
                 <div className='bg-black/80 h-full'>
                     <Navbar mode={'light'} />
                     <div className='h-1/2 flex items-center justify-center text-white'>
                         <div className='text-center'>
-                            <h3 className='text-lg sm:text-xl md:text-2xl lg:text-4xl font-medium'>Products </h3>
-                            <span>Home / Product </span>
+                            <h3 className='text-lg sm:text-xl md:text-2xl lg:text-4xl font-medium'>Restaurants</h3>
+                            <span>Home / Restaurants</span>
                         </div>
                     </div>
                 </div>

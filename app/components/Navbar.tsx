@@ -20,6 +20,10 @@ const Navbar = ({ mode }: { mode: any }) => {
             href: "/products"
         },
         {
+            name: "Restaurants",
+            href: "/restaurants"
+        },
+        {
             name: "About Us",
             href: "/about"
         },
