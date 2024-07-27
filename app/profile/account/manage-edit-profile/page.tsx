@@ -13,13 +13,19 @@ const EidtProfile = () => {
     const [loading, setLoading] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const profileData = useProfileData();
+    console.log(profileData.userData);
+
     const onSubmit = handleSubmit(async (data) => {
         try {
             setLoading(true)
             const userRef = doc(db, 'user', profileData.userData.uid);
             await updateDoc(userRef, { ...data });
             toast.success('successfully updated!!')
-            profileData.setUserData({ ...data })
+            profileData.setUserData({
+                uid: profileData?.userData?.uid,
+                picture: profileData?.userData?.picture,
+                ...data
+            })
             setAble(false)
             setLoading(false)
         } catch (error: any) {

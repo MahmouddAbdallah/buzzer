@@ -27,10 +27,6 @@ const Navbar = ({ mode }: { mode: any }) => {
             name: "About Us",
             href: "/about"
         },
-        {
-            name: "Contact Us",
-            href: "/contact"
-        },
     ]
     const menuLinks = [
         {

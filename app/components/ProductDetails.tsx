@@ -68,7 +68,7 @@ const ProductDetails = ({ productId }: { productId: string }) => {
                                         alt={product?.name}
                                         height={700}
                                         width={700}
-                                        className='w-full object-cover'
+                                        className='w-full  max-h-[500px] object-cover'
                                     />
                                 }
                             </div>
