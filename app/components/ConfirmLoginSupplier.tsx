@@ -27,8 +27,6 @@ const ConfirmLoginSupplier = () => {
         const supplierData = localStorage?.getItem('supplierData') || "{}"
         setData(JSON.parse(supplierData as string));
     }, [])
-    console.log(data);
-
 
     useEffect(() => {
         const input = inputRef.current;

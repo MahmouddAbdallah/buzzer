@@ -23,7 +23,9 @@ const OTPSend = () => {
             else {
                 setLoading(true)
                 setError("")
-                const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {})
+                const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+                    size: 'invisible',
+                })
                 const data = await signInWithPhoneNumber(auth, '+' + phoneNumber, recaptchaVerifier);
                 router.push(`/login/verification?data=${JSON.stringify(data)}&phone=${phoneNumber}`)
                 setLoading(false)
