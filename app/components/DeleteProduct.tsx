@@ -25,6 +25,7 @@ const DeleteProduct = ({ setOpen, product, setProducts }: {
             setProducts((items: any) => {
                 return items.filter((item: any) => item.id !== product.id)
             })
+            document.body.style.overflowY = 'auto'
             setLoading(false)
             setOpen(false)
         } catch (error: any) {

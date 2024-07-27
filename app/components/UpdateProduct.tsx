@@ -84,6 +84,7 @@ const UpdateProduct = ({ setOpen, product, setProducts }: {
                     }
                     return items
                 })
+                document.body.style.overflowY = 'auto'
                 setLoading(false);
                 setOpen(false)
             } catch (error: any) {
