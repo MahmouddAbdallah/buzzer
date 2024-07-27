@@ -1,41 +1,38 @@
 'use client'
+import { db } from '@/firebase';
+import { collection, getDocs, query } from 'firebase/firestore';
 import React, { useCallback, useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import ActiveStars from './ActiveStars'
-import { db } from '@/firebase'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import RestaurantLoading from './RestaurantLoading'
-import { LocationIcon } from './icons'
+import RestaurantLoading from '../components/RestaurantLoading';
+import Image from 'next/image';
+import ActiveStars from '../components/ActiveStars';
+import Link from 'next/link';
+import { LocationIcon } from '../components/icons';
 
-const ProductsRestaurants = ({ restaurantId }: { restaurantId: string }) => {
+const Products = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const fetchProducts = useCallback(
-        async () => {
-            setLoading(true);
-            try {
-                const productsRef = collection(db, "product");
-                const q = query(productsRef, where('userId', '==', restaurantId));
-                const querySnapshot = await getDocs(q);
+    const fetchProducts = async () => {
+        setLoading(true);
+        try {
+            const productsRef = collection(db, "product");
+            const q = query(productsRef,);
+            const querySnapshot = await getDocs(q);
 
-                const products = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
+            const products = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
 
-                setProducts(products as []);
-                setLoading(false)
-            } catch (error) {
-                console.error('Error fetching products: ', error);
-            }
-        }, [restaurantId]
-    );
+            setProducts(products as []);
+            setLoading(false)
+        } catch (error) {
+            console.error('Error fetching products: ', error);
+        }
+    }
     useEffect(() => {
         fetchProducts()
-    }, [fetchProducts])
-
+    }, [])
     return (
         <div className='min-h-svh'>
             {
@@ -117,4 +114,4 @@ const ProductsRestaurants = ({ restaurantId }: { restaurantId: string }) => {
     )
 }
 
-export default ProductsRestaurants
+export default Products

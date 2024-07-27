@@ -18,11 +18,11 @@ const Footer = () => {
                             </h5>
                             <ul className='space-y-5'>
                                 <li className='flex gap-3'>
-                                    <PhoneIcon />
+                                    <PhoneIcon className='fill-[#F5F5F5]' />
                                     <span>+91 1234567891</span>
                                 </li>
                                 <li className='flex gap-3'>
-                                    <EmailIcon />
+                                    <EmailIcon className='fill-[#F5F5F5]' />
                                     <span>munasbas007@gmail.com</span>
                                 </li>
                             </ul>
