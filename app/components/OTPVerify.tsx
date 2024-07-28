@@ -5,7 +5,7 @@ import { auth, db } from "@/firebase"
 import toast from "react-hot-toast"
 import { useForm } from "react-hook-form"
 import ErrorMsg from "./ErrorMsg"
-import { doc, setDoc } from "firebase/firestore"
+import { doc, getDoc, setDoc } from "firebase/firestore"
 import { useState } from "react"
 import { LoadingIcon } from "./icons"
 
@@ -24,11 +24,15 @@ const OTPVerify = () => {
                 setLoading(true)
                 const credential = PhoneAuthProvider.credential(verificationId, data.otp);
                 const user = await signInWithCredential(auth, credential);
-                await setDoc(doc(db, "user", user.user.uid), {
-                    phone: phone,
-                    uid: user.user.uid,
-                    role: 'user'
-                })
+                const userRef = await doc(db, 'user', user.user.uid);
+                const findUser = await getDoc(userRef);
+                if (!findUser) {
+                    await setDoc(doc(db, "user", user.user.uid), {
+                        phone: phone,
+                        uid: user.user.uid,
+                        role: 'user'
+                    })
+                }
                 setLoading(false)
                 router.push(`/`)
             } catch (error: any) {
@@ -60,7 +64,7 @@ const OTPVerify = () => {
                     <ErrorMsg message={errors?.otp?.message as string} />
                 </div>
                 <div className=" w-full sm:w-fit space-y-5">
-                    <button className='w-full sm:w-80 lg:w-96 py-2 rounded-md border-2 border-primary hover:bg-primary duration-200 flex justify-center'>
+                    <button disabled={loading} className='w-full sm:w-80 lg:w-96 py-2 rounded-md border-2 border-primary hover:bg-primary duration-200 flex justify-center'>
                         {loading ? <LoadingIcon className='w-6 h-6 animate-spin' /> : "Submit"}
                     </button>
                 </div>
