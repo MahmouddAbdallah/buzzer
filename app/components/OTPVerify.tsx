@@ -46,7 +46,7 @@ const OTPVerify = () => {
                         toast.error('Invalid Code');
                         break;
                     default:
-                        toast.error('Something went wrong')
+                        toast.error(error.code)
                 }
             }
         }
