@@ -21,7 +21,7 @@ const Gallary = () => {
                     <WelcomeIcon className='w-56' />
                 </div>
                 <div>
-                    <Marquee direction='right'>
+                    <Marquee>
                         {slider.map((item) => (
                             <div key={item.id} className=' mx-4 '>
                                 <div className=' w-80 h-96'>

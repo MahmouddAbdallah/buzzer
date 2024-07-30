@@ -30,18 +30,24 @@ const ManageAccount = () => {
                                 </span>
                                 <ArrowRightIcon className='fill-black' />
                             </Link>
-                            {/* <Link href={'/profile/supplier-mangment/orders'} className='flex justify-between items-center p-3 border w-full'>
+                            <Link href={'/profile/orders'} className='flex justify-between items-center p-3 border w-full'>
                                 <span className='block'>
                                     Orders
                                 </span>
                                 <ArrowRightIcon className='fill-black' />
-                            </Link> */}
+                            </Link>
                         </div>
                         :
                         <div className='space-y-4'>
                             <Link href={'/profile/account/manage-edit-profile'} className='flex justify-between items-center p-3 border w-full'>
                                 <span className='block'>
                                     Edit profile
+                                </span>
+                                <ArrowRightIcon className='fill-black' />
+                            </Link>
+                            <Link href={'/profile/orders'} className='flex justify-between items-center p-3 border w-full'>
+                                <span className='block'>
+                                    Orders
                                 </span>
                                 <ArrowRightIcon className='fill-black' />
                             </Link>

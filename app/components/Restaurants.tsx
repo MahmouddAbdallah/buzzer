@@ -37,15 +37,15 @@ const Restaurants = () => {
     }, [])
     return (
         <div>
-            {
-                !loading ?
-                    <div>
-                        <div className='flex flex-col items-center gap-3'>
-                            <p className='text-center font-semibold text-3xl'>
-                                Our Restaurants
-                            </p>
-                            <WelcomeIcon className='w-56' />
-                        </div>
+            <div>
+                <div className='flex flex-col items-center gap-3'>
+                    <p className='text-center font-semibold text-3xl'>
+                        Our Restaurants
+                    </p>
+                    <WelcomeIcon className='w-56' />
+                </div>
+                {
+                    !loading ?
                         <div className='p-container py-10 grid grid-cols-12 space-y-5 lg:space-y-0 sm:space-x-5 lg:space-x-0 lg:gap-10'>
                             {restaurants?.map((item: any) => {
                                 return (
@@ -94,9 +94,10 @@ const Restaurants = () => {
                                 )
                             })}
                         </div>
-                    </div> :
-                    <RestaurantLoading number={4} />
-            }
+                        :
+                        <RestaurantLoading number={4} />
+                }
+            </div>
         </div>
     )
 }

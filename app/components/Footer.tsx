@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className='bg-[url("/footerImg.jpg")] bg-center bg-no-repeat bg-cover '>
             <div className='w-full h-full bg-black/85 p-container text-white py-10'>
-                <div className="grid grid-cols-12">
+                <div className="grid grid-cols-12 space-y-5 lg:space-y-0">
                     <div className='col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 space-y-10'>
                         <LogoIcon className='w-[70px] h-[60px]' />
                         <p className='text-[#F5F5F5]'>

@@ -1,10 +1,11 @@
 'use client'
 import { db } from '@/firebase'
-import { collection, doc, getDoc, getDocs, limit, query, where } from 'firebase/firestore'
+import { doc, getDoc, } from 'firebase/firestore'
 import Image from 'next/image'
 import React, { useCallback, useEffect, useState } from 'react'
 import ActiveStars from './ActiveStars'
 import { LocationIcon } from './icons'
+import OrderNow from './OrderNow'
 
 const ProductDetails = ({ productId }: { productId: string }) => {
     const [product, setProduct] = useState<any>({})
@@ -18,7 +19,7 @@ const ProductDetails = ({ productId }: { productId: string }) => {
                 const docRef = doc(db, 'product', productId);
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
-                    setProduct(docSnap.data());
+                    setProduct({ id: docSnap.id, ...docSnap.data() });
                 } else {
                     console.log('Document not found');
                 }
@@ -53,7 +54,6 @@ const ProductDetails = ({ productId }: { productId: string }) => {
         fetchSupplier()
     }, [fetchSupplier])
 
-
     return (
         <div className='p-container py-20'>
             {!loading ?
@@ -82,9 +82,10 @@ const ProductDetails = ({ productId }: { productId: string }) => {
                                         <p className='sm:text-lg lg:text-2xl font-semibold text-red-500'>{product?.price}$</p>
                                         <p><span className='text-black/70 font-medium'>Description:</span> {product.description}</p>
                                     </div>
-                                    <button className='w-full  py-2 rounded-md border-2 border-primary hover:bg-primary duration-200'>
-                                        Order Now
-                                    </button>
+                                    <OrderNow
+                                        supplierId={supplier.uid}
+                                        productId={product.id}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -93,7 +94,7 @@ const ProductDetails = ({ productId }: { productId: string }) => {
                         <div className='space-y-5'>
                             <p className='font-semibold text-red-500'>Supplier</p>
                             <div className='flex gap-5 flex-wrap'>
-                                <div className='w-60 rounded-l-[1000px] rounded-r-full overflow-hidden'>
+                                <div className='w-60 h-60 rounded-l-[1000px] rounded-r-full overflow-hidden'>
                                     {supplier?.picture && <Image
                                         src={supplier?.picture}
                                         alt={supplier.name}

@@ -101,7 +101,6 @@ const EidtProfile = () => {
                                             <input
                                                 disabled={!able}
                                                 {...register('email', {
-                                                    required: "Please Enter email!!!!!",
                                                     value: profileData?.userData?.email ? profileData?.userData?.email : ""
                                                 })}
                                                 type="email"
