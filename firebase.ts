@@ -3,21 +3,15 @@ import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 const firebaseConfig = {
-    // apiKey: "AIzaSyDjXkDk-GLc0soSFSdUcgdPPfXoaXqeZeA",
-    // authDomain: "e-commerce-7454e.firebaseapp.com",
-    // projectId: "e-commerce-7454e",
-    // storageBucket: "e-commerce-7454e.appspot.com",
-    // messagingSenderId: "453694741760",
-    // appId: "1:453694741760:web:62f7c34c120a15f7c827e5",
-    // measurementId: "G-TKBC8PNHQV"
-    apiKey: "AIzaSyBbRZgMQhNXCDZLkcNxEygPzAisVhCmI_w",
-    authDomain: "e-commerce-2cd3a.firebaseapp.com",
-    projectId: "e-commerce-2cd3a",
-    storageBucket: "e-commerce-2cd3a.appspot.com",
-    messagingSenderId: "182406055430",
-    appId: "1:182406055430:web:a87cb22cef24f127ec6587"
+    apiKey: "AIzaSyBjlr5EJt3fs1H92lVgg_l-d5RTdLGJMcs",
+    authDomain: "buzzer-dd3cc.firebaseapp.com",
+    databaseURL: "https://buzzer-dd3cc-default-rtdb.firebaseio.com",
+    projectId: "buzzer-dd3cc",
+    storageBucket: "buzzer-dd3cc.appspot.com",
+    messagingSenderId: "721427766712",
+    appId: "1:721427766712:web:3c5b9d4f1f1c70732f834d",
+    measurementId: "G-D2M72TKG2B"
 };
-
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 auth.useDeviceLanguage();
