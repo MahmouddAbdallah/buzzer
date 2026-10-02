@@ -1,0 +1,83 @@
+@import url('https://fonts.cdnfonts.com/css/cyntho-next');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Cyntho Next', sans-serif;
+}
+
+.p-container{
+    @apply px-5 md:px-10 lg:px-24 xl:px-28
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+.rtl {
+    display: block;
+    animation: anim-rtl .3s ease-in-out;
+}
+@keyframes anim-rtl {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0%;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity:100%;
+    }
+}
+.ltr {
+    display: none;
+    animation: anim-ltr .3s ease-in-out;
+}
+@keyframes anim-ltr {
+    0%{
+        transform: translateX(0);
+        display: block;
+        opacity: 100%;
+    }
+    100%{
+        transform: translateX(-100%);
+        display: none;
+        opacity: 0%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .rtl-sidebar {
+        display: block;
+        animation: anim-rtl .3s ease-in-out;
+    }
+    @keyframes anim-rtl {
+        0%{
+            transform: translateX(-100%);
+            opacity: 0%;
+        }
+        100%{
+            transform: translateX(0%);
+            opacity:100%;
+        }
+    }
+    .ltr-sidebar {
+        display: none;
+        animation: anim-ltr .3s ease-in-out;
+    }
+    @keyframes anim-ltr {
+        0%{
+            transform: translateX(0);
+            display: block;
+            opacity: 100%;
+        }
+        100%{
+            transform: translateX(-100%);
+            display: none;
+            opacity: 0%;
+        }
+    }
+}
